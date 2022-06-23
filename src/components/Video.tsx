@@ -6,16 +6,16 @@ import '@vime/core/themes/default.css'
 
 const GET_LESSON_BY_SLUG_QUERY = gql`
    query GetLessonBySlug ($slug: String) {
-   lesson(where: {slug: $slug}) {
-      title
-      videoId
-      description
-      teacher {
-         name
-         bio
-         avatarURL
+      lesson(where: {slug: $slug}) {
+         title
+         videoId
+         description
+         teacher {
+            name
+            bio
+            avatarURL
+         }
       }
-   }
    }
 `
 
@@ -43,11 +43,11 @@ export const Video = (props: VideosProps) => {
       }
    })
 
-   if(!data){
+   if (!data) {
       return (
-      <div className="flex-1">
-         <p>carregando...</p>
-      </div>
+         <div className="flex-1">
+            <p>carregando...</p>
+         </div>
       )
    }
    console.log(data)
@@ -65,7 +65,7 @@ export const Video = (props: VideosProps) => {
             <div className="flex items-start gap-16">
                <div className="flex-1">
                   <h1 className="text-2xl font-bold">
-                  {data.lesson.title}
+                     {data.lesson.title}
                   </h1>
 
                   <p className="mt-4 text-gray-200 leading-relaxed">
